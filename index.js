@@ -2,7 +2,6 @@ const https = require("https")
 const express = require("express")
 const app = express()
 const PORT = process.env.PORT || 3000
-const TOKEN = req.body.events[0].replyToken
 
 app.use(express.json())
 app.use(express.urlencoded({
@@ -128,7 +127,7 @@ app.post("/template", function(req, res) {
   // リクエストヘッダー
   const headers = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer " + TOKEN
+    "Authorization": "Bearer " + req.body.events[0].replyToken
   }
 
   // リクエストに渡すオプション
