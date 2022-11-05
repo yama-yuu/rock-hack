@@ -98,7 +98,7 @@ app.post("/template2", function(req, res) {
       "path": "/v2/bot/message/reply",
       "method": "POST",
       "headers": headers,
-      "body": dataString
+      "body": dataString.messages
     }
 
     // リクエストの定義
