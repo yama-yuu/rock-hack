@@ -84,11 +84,12 @@ app.post("/template2", function(req, res) {
     res.send(req.body)
 
     var dataString = JSON.stringify(req.body)
+    console.log(dataString)
 
     // リクエストヘッダー
     const headers = {
       "Content-Type": "application/json",
-      "Authorization": "Bearer " + dataString.events[0].replyToken
+      "Authorization": "Bearer " + dataString.replyToken
     }
 
     // リクエストに渡すオプション
