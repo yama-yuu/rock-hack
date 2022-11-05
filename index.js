@@ -98,7 +98,7 @@ app.post("/template2", function(req, res) {
       "path": "/v2/bot/message/reply",
       "method": "POST",
       "headers": headers,
-      "body": dataString.messages
+      "body": dataString
     }
 
     // リクエストの定義
@@ -128,7 +128,7 @@ app.post("/template", function(req, res) {
   // リクエストヘッダー
   const headers = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer " + req.body.events[0].replyToken
+    "Authorization": "Bearer " + "739YUjbB34fKYrvjE9+RZn+Y30iZv0/gd0u6QLBl+AwrMlJA92RXcLHKbmvQ7dVsIcCH3A7m3lKJNdSlHX4zu8QNtHGAXlTRqKFvzkZ5pJWrI3elivoZwLk9TSXBmxM1Vh6L3H5SAaRHl4rKY/XWIgdB04t89/1O/w1cDnyilFU="
   }
 
   // リクエストに渡すオプション
