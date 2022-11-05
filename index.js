@@ -2,6 +2,7 @@ const https = require("https")
 const express = require("express")
 const app = express()
 const PORT = process.env.PORT || 3000
+const Token = process.env.Token
 
 app.use(express.json())
 app.use(express.urlencoded({
@@ -89,7 +90,7 @@ app.post("/template2", function(req, res) {
     // リクエストヘッダー
     const headers = {
       "Content-Type": "application/json",
-      "Authorization": "Bearer " + process.env.Token
+      "Authorization": "Bearer " + Token
     }
 
     // リクエストに渡すオプション
@@ -128,7 +129,7 @@ app.post("/template", function(req, res) {
   // リクエストヘッダー
   const headers = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer " + "739YUjbB34fKYrvjE9+RZn+Y30iZv0/gd0u6QLBl+AwrMlJA92RXcLHKbmvQ7dVsIcCH3A7m3lKJNdSlHX4zu8QNtHGAXlTRqKFvzkZ5pJWrI3elivoZwLk9TSXBmxM1Vh6L3H5SAaRHl4rKY/XWIgdB04t89/1O/w1cDnyilFU="
+    "Authorization": "Bearer " + Token
   }
 
   // リクエストに渡すオプション
