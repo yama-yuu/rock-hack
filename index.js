@@ -81,6 +81,45 @@ app.post("/webhook", function(req, res) {
 })
 
 // reply用
+app.post("/test2", function(req, res) {
+    console.log(req.body)
+    res.send(req.body)
+
+    var dataString = JSON.stringify(req.body)
+    console.log(dataString)
+
+    // リクエストヘッダー
+    const headers = {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + Token
+    }
+
+    // リクエストに渡すオプション
+    const webhookOptions = {
+      "hostname": "api.line.me",
+      "path": "/v2/bot/message/reply",
+      "method": "POST",
+      "headers": headers,
+      "body": dataString
+    }
+
+    // リクエストの定義
+    const request = https.request(webhookOptions, (res) => {
+      res.on("data", (d) => {
+        process.stdout.write(d)
+      })
+    })
+
+    // エラーをハンドル
+    request.on("error", (err) => {
+      console.error(err)
+    })
+
+    // データを送信
+    request.write(dataString)
+    request.end()
+})
+
 app.post("/template2", function(req, res) {
     console.log(req.body)
     res.send(req.body)
@@ -119,6 +158,8 @@ app.post("/template2", function(req, res) {
     request.write(dataString)
     request.end()
 })
+
+
 
 // push通知用
 app.post("/template", function(req, res) {
