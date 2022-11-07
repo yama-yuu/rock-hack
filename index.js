@@ -3,6 +3,7 @@ const express = require("express")
 const app = express()
 const PORT = process.env.PORT || 3000
 const Token = process.env.Token
+const rockToken = process.env.rockToken
 
 app.use(express.json())
 app.use(express.urlencoded({
@@ -90,7 +91,7 @@ app.post("/template2", function(req, res) {
     // リクエストヘッダー
     const headers = {
       "Content-Type": "application/json",
-      "Authorization": "Bearer " + Token
+      "Authorization": "Bearer " + rockToken
     }
 
     // リクエストに渡すオプション
